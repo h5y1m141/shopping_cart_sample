@@ -1,0 +1,22 @@
+default: &default
+  adapter: mysql2
+  pool: 5
+  timeout: 5000
+  port: 3306
+  username: root
+  # Macなどのローカル環境を利用する場合にはここの値をご自身の環境のものに変更
+  password: password
+  # Docker用に設定
+  host: db
+
+development:
+  <<: *default
+  database: shopping_cart_sample_development
+
+test:
+  <<: *default
+  database: shopping_cart_sample_test
+
+production:
+  <<: *default
+  database: shopping_cart_sample_production

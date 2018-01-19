@@ -1,0 +1,11 @@
+FROM ruby:2.4.0
+
+ENV APP_HOME /myapp
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
+
+RUN apt-get update -qq && apt-get install -y git build-essential libpq-dev nodejs
+
+# setup Rails
+ADD . $APP_HOME
+RUN bundle install
