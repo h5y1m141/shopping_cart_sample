@@ -1,19 +1,11 @@
 version: '2'
 
 services:
-  datastore:
-    image: busybox
-    volumes:
-      - bundle_install:/myapp/vendor/bundle
-      - bundle:/myapp/.bundle
-      - bundle_cache:/usr/local/bundle
   web:
     depends_on:
       - db
     volumes:
       - .:/myapp
-    volumes_from:
-      - datastore
     build:
       context: .
       dockerfile: dockerfiles/Dockerfile-rails.dev
@@ -31,15 +23,3 @@ services:
       MYSQL_PASSWORD: password
     ports:
       - "3306:3306"
-    volumes_from:
-      - datastore
-    volumes:
-      - ./db/mysql_data:/var/lib/mysql
-
-volumes:
-  bundle_install:
-    driver: local
-  bundle:
-    driver: local
-  bundle_cache:
-    driver: local
