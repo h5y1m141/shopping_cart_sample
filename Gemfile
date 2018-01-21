@@ -1,4 +1,4 @@
-ruby File.read(File.expand_path('../.ruby-version', __FILE__)).strip
+ruby '2.4.0'
 source 'https://rubygems.org'
 
 ENV['NOKOGIRI_USE_SYSTEM_LIBRARIES'] = 'YES'
