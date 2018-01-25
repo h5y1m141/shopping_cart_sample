@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require vue
+//= require admin/app
+//= require_directory ./components
+//= require_directory ./view_model
