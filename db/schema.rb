@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180119225909) do
+ActiveRecord::Schema.define(version: 20180125075348) do
 
   create_table "orders", force: :cascade do |t|
     t.integer  "product_id", limit: 4
@@ -22,10 +22,10 @@ ActiveRecord::Schema.define(version: 20180119225909) do
   add_index "orders", ["product_id"], name: "index_orders_on_product_id", using: :btree
 
   create_table "products", force: :cascade do |t|
-    t.text     "title",      limit: 65535
-    t.integer  "price",      limit: 4
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.string   "title",      limit: 255, null: false
+    t.integer  "price",      limit: 4,   null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   add_foreign_key "orders", "products"
