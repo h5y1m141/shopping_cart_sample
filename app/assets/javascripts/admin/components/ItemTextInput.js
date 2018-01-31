@@ -22,6 +22,8 @@ Vue.component('item-text-input', {
     updateTitle: function () {
       if(this.validation) {
         this.$emit('update-item', this.textfield);
+      } else {
+        this.$emit('update-item', '');
       }
     }
   },

@@ -22,6 +22,8 @@ Vue.component('item-number-input', {
     updatePrice: function () {
       if(this.validation) {
         this.$emit('update-item', this.numberField);
+      } else {
+        this.$emit('update-item', 0);
       }
     }
   },
