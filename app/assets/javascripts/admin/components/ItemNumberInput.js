@@ -5,7 +5,7 @@ Vue.component('item-number-input', {
     '  <div class="col-sm-6">' +
     '    <input type="text" class="form-control" @blur="updatePrice" v-model="numberField" v-bind:class="{ \'is-invalid\': !validation }" >' +
     '    <div v-show="!validation" v-bind:class="{ \'invalid-feedback\': !validation }">' +
-    '      入力必須' +
+    '      金額を入力してください。' +
     '    </div>' +
     '  </div>' +
     '</div>' +
@@ -15,7 +15,7 @@ Vue.component('item-number-input', {
   },
   data: function () {
     return {
-      numberField: ''
+      numberField: 0
     };
   },
   methods: {
@@ -27,7 +27,7 @@ Vue.component('item-number-input', {
   },
   computed: {
     validation: function () {
-      return this.numberField !== '';
+      return this.numberField > 0 && Number(this.numberField);
     }
   }
 });
