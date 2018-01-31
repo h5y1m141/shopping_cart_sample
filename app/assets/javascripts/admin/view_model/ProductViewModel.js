@@ -8,10 +8,11 @@ $(function () {
       }
     },
     methods: {
-      updateProduct: function (item) {
-        if(item.title) {
-          this.product.title = item.title;
-        }
+      updateTitle: function (title) {
+        this.product.title = title;
+      },
+      updatePrice: function (price) {
+        this.product.price = price;
       }
     },
     computed: {
