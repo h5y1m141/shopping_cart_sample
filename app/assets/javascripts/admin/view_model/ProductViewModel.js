@@ -7,6 +7,14 @@ $(function () {
         price: 0
       }
     },
+    methods: {
+      updateTitle: function (title) {
+        this.product.title = title;
+      },
+      updatePrice: function (price) {
+        this.product.price = price;
+      }
+    },
     computed: {
       disableSubmitButton: function () {
         return this.validation ? false : true;
